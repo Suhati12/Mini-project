@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact - Art & Culture</title>
+    <link rel="stylesheet" href="cssstyle.css.css"/>
+</head>
+<body>
+
+    <header style="background: linear-gradient(135deg, #3498db, #2980b9);">
+        <h1>Contact Us</h1>
+        <p>We'd Love to Hear From You</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html.html">Gallery</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="events.html.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div>
+                <h2 style="color: #ffd700; margin-bottom: 20px;">Get In Touch</h2>
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required />
+                    <input type="email" id="email" placeholder="Your Email" required />
+                    <select style="padding: 15px; border: none; border-radius: 10px; background: rgba(255,255,255,0.1); color: white; font-size: 1rem; backdrop-filter: blur(5px);">
+                        <option value="">Select Subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="exhibition">Exhibition Information</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="press">Press & Media</option>
+                    </select>
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <div>
+                <h2 style="color: #ffd700; margin-bottom: 20px;">Visit Our Gallery</h2>
+                <div class="card">
+                    <img src="image/a-brush-stroke-artistic-letter-logo-design-with-creative-modern-look-and-vibrant-colors-vector.jpg" alt="Gallery Location" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                    <h4 style="color: #ffd700;">Art & Culture Hub</h4>
+                    <p><strong>Address:</strong> 123 Art Street, Culture District</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@artculturehub.com</p>
+                    <p><strong>Hours:</strong> Mon-Fri 9AM-6PM, Sat-Sun 10AM-8PM</p>
+                </div>
+                
+                <div class="card" style="margin-top: 20px;">
+                    <h4 style="color: #ffd700;">Follow Us</h4>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center; line-height: 20px;">📘</a>
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center; line-height: 20px;">📷</a>
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center; line-height: 20px;">🐦</a>
+                        <a href="#" style="color: #ffd700; text-decoration: none; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center; line-height: 20px;">💼</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="margin-top: 40px; text-align: center;">
+            <h3 style="color: #ffd700;">Frequently Asked Questions</h3>
+            <div style="text-align: left; margin-top: 20px;">
+                <details style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                    <summary style="color: #ffd700; cursor: pointer; font-weight: bold;">How can I submit my artwork for exhibition?</summary>
+                    <p style="margin-top: 10px;">Please send your portfolio to submissions@artculturehub.com with a brief artist statement and CV.</p>
+                </details>
+                <details style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                    <summary style="color: #ffd700; cursor: pointer; font-weight: bold;">Do you offer educational programs?</summary>
+                    <p style="margin-top: 10px;">Yes! We offer workshops, lectures, and guided tours. Check our Events page for upcoming programs.</p>
+                </details>
+                <details style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                    <summary style="color: #ffd700; cursor: pointer; font-weight: bold;">Can I purchase artworks from the gallery?</summary>
+                    <p style="margin-top: 10px;">Selected pieces are available for purchase. Contact us for pricing and availability information.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div id="dark-mode-toggle">Sun</div>
+
+    <footer>
+        <p>© 2025 Art & Culture Hub. All rights reserved.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span id="close-modal" class="close">×</span>
+        <img id="modal-img" class="modal-content" />
+        <div id="modal-caption" style="text-align:center; color:#ffd700; margin-top:10px;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

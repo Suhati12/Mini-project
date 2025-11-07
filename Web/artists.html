@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Artists - Art & Culture</title>
+    <link rel="stylesheet" href="cssstyle.css.css"/>
+    <!-- Internal CSS for Artists page -->
+    <style>
+        .artist-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .artist-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-mode .artist-card {
+            background: #34495e;
+            border-color: #4a6741;
+            color: #ecf0f1;
+        }
+        
+        .artist-card:hover {
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+        
+        .artist-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #3498db;
+            object-fit: cover;
+        }
+        
+        .artist-name {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .artist-name {
+            color: #ecf0f1;
+        }
+        
+        .artist-period {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        body.dark-mode .artist-period {
+            color: #bdc3c7;
+        }
+        
+        .artist-bio {
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        body.dark-mode .artist-bio {
+            color: #ecf0f1;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-year {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background: linear-gradient(135deg, #3498db, #2980b9);">
+        <h1>Featured Artists</h1>
+        <p>Masters Who Shaped Art History</p>
+        <!-- Inline CSS for header button -->
+        <a href="gallery.html.html" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: white; color: #3498db; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; border: 2px solid white;">View Their Works</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html.html">Gallery</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="events.html.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2 style="text-align: center; color: #3498db; margin: 40px 0;">Featured Artists</h2>
+            
+            <div class="artist-showcase">
+                <div class="artist-card">
+                    <img src="image/27-birds-jennifer-lommers.jpg" alt="Leonardo da Vinci" class="artist-image">
+                    <h3 class="artist-name">Leonardo da Vinci</h3>
+                    <p class="artist-period">1452-1519</p>
+                    <p class="artist-bio">Italian Renaissance artist, inventor, and scientist. Famous for the Mona Lisa and The Last Supper.</p>
+                </div>
+                
+                <div class="artist-card">
+                    <img src="image/Surrealism-art-style.jpg" alt="Vincent van Gogh" class="artist-image">
+                    <h3 class="artist-name">Vincent van Gogh</h3>
+                    <p class="artist-period">1853-1890</p>
+                    <p class="artist-bio">Dutch painter known for bold colors and emotional style. Created Starry Night and many self-portraits.</p>
+                </div>
+                
+                <div class="artist-card">
+                    <img src="image/Waiting-ArtZolo-com-9645.jpg" alt="Frida Kahlo" class="artist-image">
+                    <h3 class="artist-name">Frida Kahlo</h3>
+                    <p class="artist-period">1907-1954</p>
+                    <p class="artist-bio">Mexican artist known for self-portraits and works inspired by Mexican culture.</p>
+                </div>
+                
+                <div class="artist-card">
+                    <img src="image/images (1).jpeg" alt="Pablo Picasso" class="artist-image">
+                    <h3 class="artist-name">Pablo Picasso</h3>
+                    <p class="artist-period">1881-1973</p>
+                    <p class="artist-bio">Spanish painter who co-founded Cubism. One of the most influential artists of the 20th century.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; color: #3498db; margin: 60px 0 40px;">Art Movement Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1400-1600</div>
+                        <h4>Renaissance</h4>
+                        <p>Revival of classical learning and wisdom, emphasis on humanism and realistic representation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1600-1750</div>
+                        <h4>Baroque</h4>
+                        <p>Dramatic use of light and shadow, emotional intensity, and grandeur in art and architecture.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1860-1886</div>
+                        <h4>Impressionism</h4>
+                        <p>Focus on light and its changing qualities, ordinary subject matter, and visible brush strokes.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1907-1914</div>
+                        <h4>Cubism</h4>
+                        <p>Revolutionary approach showing subjects from multiple viewpoints, geometric forms and fragmentation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1920-1940</div>
+                        <h4>Surrealism</h4>
+                        <p>Exploration of the unconscious mind, dreams, and the irrational through art and literature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="dark-mode-toggle">☀</div>
+
+    <footer>
+        <p>© 2025 Art & Culture Hub. Celebrating artistic legacy.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span id="close-modal" class="close">×</span>
+        <img id="modal-img" class="modal-content" />
+        <div id="modal-caption" style="text-align:center; color:#ffd700; margin-top:10px;"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

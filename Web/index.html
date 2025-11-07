@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Art & Culture - Home</title>
+    <link rel="stylesheet" href="cssstyle.css.css"/>
+    <style>
+        .hero-btn { margin-top: 20px; padding: 10px 20px; background: white; color: #4a90e2; text-decoration: none; display: inline-block; }
+        .hero-btn:hover { background: #f0f0f0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Art & Culture</h1>
+        <p class="header-subtitle"><span class="typed-text"></span><span class="typed-cursor">|</span></p>
+        <a href="gallery.html.html" class="hero-btn">Explore Gallery</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html.html">Gallery</a></li>
+            <li><a href="artists.html">Artists</a></li>
+            <li><a href="events.html.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Featured Artworks</h2>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;">
+                <div class="flip-card">
+                    <img src="image/27-birds-jennifer-lommers.jpg" alt="Birds Art">
+                    <h3>Nature's Symphony</h3>
+                    <p>Birds in Harmony</p>
+                </div>
+
+                <div class="flip-card">
+                    <img src="image/Surrealism-art-style.jpg" alt="Surrealism">
+                    <h3>Surreal Dreams</h3>
+                    <p>Abstract Expression</p>
+                </div>
+
+                <div class="flip-card">
+                    <img src="image/Waiting-ArtZolo-com-9645.jpg" alt="Contemporary">
+                    <h3>Contemporary Art</h3>
+                    <p>Modern Expression</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Art Movements</h2>
+            <div class="card">
+                <h3>Renaissance</h3>
+                <p>The rebirth of classical art and learning (14th-17th century)</p>
+            </div>
+            <div class="card">
+                <h3>Modern Art</h3>
+                <p>Revolutionary approaches to artistic expression (19th-20th century)</p>
+            </div>
+            <div class="card">
+                <h3>Contemporary</h3>
+                <p>Current artistic expressions and digital age creativity</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="dark-mode-toggle">Sun</div>
+
+    <footer>
+        <p>© 2025 Art & Culture Hub. Crafted with Passion.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span id="close-modal" class="close">×</span>
+        <img id="modal-img" class="modal-content" />
+        <div style="text-align:center; color:#ffd700; margin-top:10px;" id="modal-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
