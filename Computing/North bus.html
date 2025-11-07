@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🚌 North India Bus Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .bus-card {
+            border: 2px solid #ddd;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        .bus-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .bus-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .bus-route {
+            color: #666;
+            margin: 5px 0;
+        }
+        .bus-fare {
+            font-size: 16px;
+            color: #28a745;
+            font-weight: bold;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚌 North India Bus Booking</h1>
+        <p style="text-align: center; color: #666;">Delhi • Chandigarh • Himachal • Jaipur</p>
+        
+        <div class="nav">
+            <button onclick="showSection('buses')">View Buses</button>
+            <button onclick="showSection('book')">Book Ticket</button>
+            <button onclick="showSection('view')">View Booking</button>
+        </div>
+        
+        <!-- View Buses -->
+        <div id="buses" class="section active">
+            <h2>Available Buses</h2>
+            
+            <div class="bus-card">
+                <div class="bus-name">🚌 Delhi Express</div>
+                <div class="bus-route">Delhi → Chandigarh (4 hours)</div>
+                <div class="bus-fare">₹350 | 40 Seats</div>
+                <button onclick="selectBus('Delhi Express', 101, 350)">Book Now</button>
+            </div>
+            
+            <div class="bus-card">
+                <div class="bus-name">🚌 Hill Queen</div>
+                <div class="bus-route">Delhi → Shimla (10 hours)</div>
+                <div class="bus-fare">₹800 | 35 Seats</div>
+                <button onclick="selectBus('Hill Queen', 102, 800)">Book Now</button>
+            </div>
+            
+            <div class="bus-card">
+                <div class="bus-name">🚌 Pink City</div>
+                <div class="bus-route">Delhi → Jaipur (5.5 hours)</div>
+                <div class="bus-fare">₹450 | 45 Seats</div>
+                <button onclick="selectBus('Pink City', 103, 450)">Book Now</button>
+            </div>
+            
+            <div class="bus-card">
+                <div class="bus-name">🚌 Mountain King</div>
+                <div class="bus-route">Chandigarh → Manali (8 hours)</div>
+                <div class="bus-fare">₹600 | 30 Seats</div>
+                <button onclick="selectBus('Mountain King', 104, 600)">Book Now</button>
+            </div>
+        </div>
+        
+        <!-- Book Ticket -->
+        <div id="book" class="section">
+            <h2>Book Your Ticket</h2>
+            
+            <div id="selectedBus" style="display: none;" class="success">
+                <div id="busInfo"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>Your Name:</label>
+                <input type="text" id="passengerName" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label>Phone:</label>
+                <input type="tel" id="phone" placeholder="Enter phone number">
+            </div>
+            
+            <button onclick="confirmBooking()">Confirm Booking</button>
+            
+            <div id="bookingResult"></div>
+        </div>
+        
+        <!-- View Booking -->
+        <div id="view" class="section">
+            <h2>View Your Booking</h2>
+            
+            <div class="form-group">
+                <label>Booking ID:</label>
+                <input type="number" id="bookingId" placeholder="Enter booking ID">
+            </div>
+            
+            <button onclick="searchBooking()">Search</button>
+            
+            <div id="bookingDetails"></div>
+        </div>
+    </div>
+    
+    <script>
+        let selectedBus = null;
+        let bookingCounter = 1001;
+        let bookings = [];
+        
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        function selectBus(name, id, fare) {
+            selectedBus = {name, id, fare};
+            document.getElementById('selectedBus').style.display = 'block';
+            document.getElementById('busInfo').innerHTML = `
+                <strong>Selected:</strong> ${name} - ₹${fare}
+            `;
+            showSection('book');
+        }
+        
+        function confirmBooking() {
+            if (!selectedBus) {
+                alert('Please select a bus first');
+                return;
+            }
+            
+            const name = document.getElementById('passengerName').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (!name || !phone) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            const bookingId = bookingCounter++;
+            bookings.push({
+                id: bookingId,
+                passenger: name,
+                phone: phone,
+                bus: selectedBus.name,
+                fare: selectedBus.fare
+            });
+            
+            document.getElementById('bookingResult').innerHTML = `
+                <div class="success">
+                    <h3>🎉 Booking Confirmed!</h3>
+                    <p><strong>Booking ID:</strong> ${bookingId}</p>
+                    <p><strong>Passenger:</strong> ${name}</p>
+                    <p><strong>Bus:</strong> ${selectedBus.name}</p>
+                    <p><strong>Amount:</strong> ₹${selectedBus.fare}</p>
+                </div>
+            `;
+            
+            document.getElementById('passengerName').value = '';
+            document.getElementById('phone').value = '';
+            selectedBus = null;
+            document.getElementById('selectedBus').style.display = 'none';
+        }
+        
+        function searchBooking() {
+            const bookingId = parseInt(document.getElementById('bookingId').value);
+            const booking = bookings.find(b => b.id === bookingId);
+            
+            if (booking) {
+                document.getElementById('bookingDetails').innerHTML = `
+                    <div class="success">
+                        <h3>📋 Booking Found</h3>
+                        <p><strong>ID:</strong> ${booking.id}</p>
+                        <p><strong>Passenger:</strong> ${booking.passenger}</p>
+                        <p><strong>Phone:</strong> ${booking.phone}</p>
+                        <p><strong>Bus:</strong> ${booking.bus}</p>
+                        <p><strong>Amount:</strong> ₹${booking.fare}</p>
+                    </div>
+                `;
+            } else {
+                document.getElementById('bookingDetails').innerHTML = `
+                    <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px;">
+                        ❌ Booking not found!
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
